@@ -1,0 +1,144 @@
+turn_off_lights:
+  alias: Turn off lights
+  sequence:
+    - service: light.turn_off
+      data:
+        entity_id: light.media_center_lights
+    - service: light.turn_off
+      data:
+        entity_id: light.bar_light
+    - service: light.turn_off
+      data:
+        entity_id: light.kitchen_cabinets
+    - service: light.turn_off
+      data:
+        entity_id: light.patio_level
+    - service: switch.turn_off
+      data:
+        entity_id: switch.kitchen_lamp_switch
+    - service: switch.turn_off
+      data:
+        entity_id: switch.living_room_switch_switch
+    - service: switch.turn_off
+      data:
+        entity_id: switch.computer_lamp_switch
+    - service: switch.turn_off
+      data:
+        entity_id: switch.behind_tv_lamp_switch
+    - service: switch.turn_off
+      data:
+        entity_id: switch.bookshelf_switch
+movie_mode:
+  alias: Movie Mode
+  sequence:
+    - service: script.turn_on
+      entity_id: script.turn_off_lights
+    - service: light.turn_on
+      data:
+        entity_id: light.media_center_lights
+        brightness: 140
+        effect: colorfade_slow
+    - service: hdmi_cec.power_on
+      data:
+        device: TV
+    - service: hdmi_cec.select_device
+      data:
+        device: SHIELD
+    - service: switch.turn_on
+      data:
+        entity_id: switch.living_room_blinds
+    - service: switch.turn_on
+      data:
+        entity_id: switch.far_living_room_blinds
+    - service: switch.turn_on
+      data:
+        entity_id: switch.desk_blinds
+goodnight:
+  alias: Goodnight
+  sequence:
+    - service: script.turn_on
+      entity_id: script.turn_off_lights
+    - service: script.turn_on
+      entity_id: script.turn_off_tv
+    - service: switch.turn_on
+      data:
+        entity_id: switch.living_room_blinds
+    - service: switch.turn_on
+      data:
+        entity_id: switch.far_living_room_blinds
+    - service: switch.turn_on
+      data:
+        entity_id: switch.desk_blinds
+    - service: switch.turn_on
+      data:
+        entity_id: switch.master_bedroom_blinds
+    - service: switch.turn_on
+      data:
+        entity_id: switch.second_bedroom_blinds
+lounge_mode:
+  alias: Lounge Mode
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.kitchen_lamp_switch
+    - service: switch.turn_on
+      entity_id: switch.computer_lamp_switch
+    - service: switch.turn_on
+      entity_id: switch.behind_tv_lamp_switch
+    - service: switch.turn_on
+      entity_id: switch.bookshelf_switch
+
+red_light_mode:
+  alias: Red Light Mode
+  sequence:
+    - service: script.turn_on
+      entity_id: script.turn_off_lights
+    - delay:
+        milliseconds: 1
+    - service: light.turn_on
+      data:
+        entity_id: light.media_center_lights
+        brightness: 140
+        rgb_color: [255, 0, 0]
+    - service: light.turn_on
+      data:
+        entity_id: light.bar_light
+        brightness: 140
+        rgb_color: [255, 0, 0]
+    - service: light.turn_on
+      data:
+        entity_id: light.kitchen_cabinets
+        brightness: 140
+        rgb_color: [255, 0, 0]
+
+morning_brief:
+  alias: Morning brief
+  sequence:
+    - service: tts.google_say
+      entity_id: media_player.living_room_speaker
+      data_template:
+        message: "Its {{ states.sensor.time.state }} and {{ states.sensor.pws_weather.state }} "
+        cache: false
+    - delay:
+        seconds: 12
+    - service: tts.google_say
+      entity_id: media_player.living_room_speaker
+      data_template:
+        message: " next bit etc "
+        cache: false
+turn_off_tv:
+  sequence:
+    # Shield
+    - service: mqtt.publish
+      data:
+        topic: "media/cec/8/cmd"
+        payload: "off"
+    # Stereo?
+    - service: mqtt.publish
+      data:
+        topic: "media/cec/5/cmd"
+        payload: "off"
+    # TV
+    - service: mqtt.publish
+      data:
+        topic: "media/cec/0/cmd"
+        payload: "off"

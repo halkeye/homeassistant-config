@@ -1,0 +1,74 @@
+- name: L1
+  entities:
+    light.patio_level:
+      state: off
+    switch.kitchen_lamp_switch:
+      state: on
+    switch.living_room_switch_switch:
+      state: on
+    switch.computer_lamp_switch:
+      state: on
+    switch.switch:
+      state: on
+    switch.behind_tv_lamp_switch:
+      state: on
+    switch.bookshelf_switch:
+      state: on
+- name: Lights off
+  entities:
+    light.patio_level:
+      state: off
+    switch.kitchen_lamp_switch:
+      state: off
+    switch.living_room_switch_switch:
+      state: off
+    switch.computer_lamp_switch:
+      state: off
+    switch.switch:
+      state: off
+    switch.behind_tv_lamp_switch:
+      state: off
+    switch.bookshelf_switch:
+      state: off
+- name: Work Mode
+  entities:
+    switch.computer_lamp_switch:
+      state: on
+    switch.desk_blinds:
+      state: on
+    switch.living_room_blinds:
+      state: off
+    switch.far_living_room_blinds:
+      state: on
+- name: Dark Blinds
+  entities:
+    switch.desk_blinds:
+      state: on
+    switch.master_bedroom_blinds:
+      state: on
+    switch.second_bedroom_blinds:
+      state: on
+    switch.living_room_blinds:
+      state: on
+    switch.far_living_room_blinds:
+      state: on
+- name: Daytime Mode
+  entities:
+    light.patio_level:
+      state: off
+    switch.kitchen_lamp_switch:
+      state: off
+    switch.living_room_switch_switch:
+      state: off
+    switch.computer_lamp_switch:
+      state: off
+    switch.behind_tv_lamp_switch:
+      state: off
+    switch.bookshelf_switch:
+      state: off
+    switch.desk_blinds:
+      state: off
+    switch.living_room_blinds:
+      state: off
+    switch.far_living_room_blinds:
+      state: off

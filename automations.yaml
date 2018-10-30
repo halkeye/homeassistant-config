@@ -1,0 +1,113 @@
+---
+- id: "switch_turning_on"
+  alias: Switch is turned on
+  trigger:
+    platform: state
+    entity_id: switch.living_room_switch_switch
+    to: "on"
+  action:
+    service: switch.turn_on
+    entity_id:
+    - switch.computer_lamp_switch
+    - switch.behind_tv_lamp_switch
+    - switch.kitchen_lamp_switch
+    - switch.bookshelf_switch
+- id: "switch_turning_off"
+  alias: Switch is turned off
+  trigger:
+    platform: state
+    entity_id: switch.living_room_switch_switch
+    to: "off"
+  action:
+    service: switch.turn_off
+    entity_id:
+    - switch.computer_lamp_switch
+    - switch.behind_tv_lamp_switch
+    - switch.kitchen_lamp_switch
+    - switch.bookshelf_switch
+- id: "close_blinds_nightly"
+  alias: Close blinds at 2am
+  trigger:
+    - platform: time
+      at: '2:00:00'
+  action:
+  - service: scene.turn_on
+    entity_id: scene.dark_blinds
+#- id: "door_open_notice"
+#  alias: "Let me know when the door opens"
+#  trigger:
+#    - platform: state
+#      entity_id: binary_sensor.front_door_state_sensor
+#      from: 'off'
+#      to: 'on'
+#  action:
+#    - service: notify.notifymyandroid
+#      data_template:
+#        title: 'Door opened'
+#    - service: notify.html5
+#      data_template:
+#        message: "Door Opened"
+#- id: "door_close_notice"
+#  alias: "Let me know when the door opens"
+#  trigger:
+#    - platform: state
+#      entity_id: binary_sensor.front_door_state_sensor
+#      from: 'on'
+#      to: 'off'
+#  action:
+#    - service: notify.html5
+#      data_template:
+#        message: "Door Closed"
+#- id: "crepy_shawn"
+#  alias: When shawn visits send him a creepy message
+#  trigger:
+#    platform: state
+#    entity_id: device_tracker.shawn_phone
+#    to: 'home'
+#  action:
+#    - service: notify.sms
+#      data_template:
+#        message: > 
+#          {{ ["Why hello there", "Is it hungry?", "I know what you did" ] | random }}
+#        target:
+#          - !secret phone_number_shawn
+- id: "daily_brief"
+  alias: "Google Todays Time/Temperature"
+  initial_state: 'off'
+  trigger:
+    platform: time
+    at: '19:45:00'
+  condition:
+    condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+  action:
+  - service: media_player.turn_on
+    entity_id:
+    - media_player.living_room_speaker
+  - delay: 00:00:02
+  - service: media_player.volume_set
+    data_template:
+      entity_id:
+      - media_player.living_room_speaker
+
+      volume_level: '0.7'
+  - delay: 00:00:02
+  - service: tts.google_say
+    entity_id:
+    - media_player.living_room_speaker
+    data_template:
+      message: "The current time is {{ states('sensor.time') }},
+        Today's weather will be a {{ states('sensor.dark_sky_icon') }},
+        with a high of {{ states('sensor.dark_sky_daytime_high_temperature') }} degrees."
+      cache: false
+  - delay: 00:00:15
+  - service: media_player.turn_off
+    entity_id:
+    - media_player.living_room_speaker

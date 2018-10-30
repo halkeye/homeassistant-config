@@ -1,0 +1,70 @@
+name: Home
+image: /local/custom_ui/floorplan/floorplan.svg
+stylesheet: /local/custom_ui/floorplan/floorplan.css
+
+# These options are optional
+# warnings:            # enable warnings (to find out why things might ot be working correctly)
+# pan_zoom:            # enable experimental panning / zooming
+# hide_app_toolbar:    # hide the application toolbar (when used as a custom panel)
+warnings: true
+last_motion_entity: sensor.template_last_motion
+last_motion_class: last-motion
+
+groups:
+  - name: Sensors
+    entities:
+      - sensor.yr_temperature
+    text_template: '${entity.state ? entity.state : "unknown"} C'
+    # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
+    # text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'
+    class_template: '
+      var temp = parseFloat(entity.state.replace("°", ""));
+      if (temp < 10)
+      return "temp-low";
+      else if (temp < 30)
+      return "temp-medium";
+      else
+      return "temp-high";
+      '
+
+  - name: Lights
+    entities:
+      - switch.kitchen_lamp_switch
+      - switch.computer_lamp_switch
+      - switch.behind_tv_lamp_switch
+      - switch.bookshelf_switch
+    states:
+      - state: "on"
+        class: "light-on"
+      - state: "off"
+        class: "light-off"
+
+  - name: Text Sensors
+    entities:
+      - device_tracker.gavin_phone
+      - sensor.time
+      - sensor.date
+    text_template: '${entity.state ? entity.state : "unknown"}'
+
+  - name: Switches
+    entities:
+      - switch.living_room_switch_switch
+    states:
+      - state: "on"
+        class: "doorbell-on"
+      - state: "off"
+        class: "doorbell-off"
+
+  - name: Binary sensors
+    entities:
+      - binary_sensor.front_door_state_sensor
+    states:
+      - state: "off"
+        class: "info-background"
+      - state: "on"
+        class: "warning-background"
+    state_transitions:
+      - name: On to off
+        from_state: "on"
+        to_state: "off"
+        duration: 10

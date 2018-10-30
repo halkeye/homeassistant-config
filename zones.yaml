@@ -1,0 +1,11 @@
+- name: Home
+  latitude: 49.227763
+  longitude: -123.011010
+  radius: 200
+  icon: mdi:home
+
+- name: Sauce Labs
+  latitude: 49.284107
+  longitude: -123.106040
+  radius: 200
+  icon: mdi:worker

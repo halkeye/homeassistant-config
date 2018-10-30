@@ -1,0 +1,207 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 49.227703
+  longitude: -123.0111478
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 108
+  # metric for Metric, imperial for Imperial
+  whitelist_external_dirs:
+    - /config
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Vancouver
+  auth_providers:
+    - type: homeassistant
+    - type: trusted_networks
+    # needed for owntracks for now
+    - type: legacy_api_password
+  customize:
+    light.bar_light:
+      friendly_name: Bar Lights
+      icon: mdi:led-strip
+    light.kitchen_cabinets:
+      friendly_name: Kitchen Cabinets Lights
+      icon: mdi:led-strip
+    light.media_center_lights:
+      friendly_name: Media Center Lights
+      icon: mdi:led-strip
+    switch.behind_tv_lamp_switch:
+      friendly_name: Behind TV Lamp
+      icon: mdi:lamp
+    switch.bookshelf_switch:
+      friendly_name: Bookshelf Lamp
+      icon: mdi:lamp
+    switch.kitchen_lamp_switch:
+      friendly_name: Kitchen Lamp
+      icon: mdi:lamp
+    switch.computer_lamp_switch:
+      friendly_name: Computer Desk Lamp
+      icon: mdi:lamp
+    script.movie_mode:
+      friendly_name: Movie Mode
+    script.goodnight:
+      friendly_name: Goodnight
+    scene.l1:
+      friendly_name: Lights On
+    scene.lights_off:
+      friendly_name: Lights off
+    group.people:
+      hidden: false
+    group.all_lights:
+      hidden: false
+    group.all_scripts:
+      hidden: false
+    group.all_switches:
+      hidden: false
+
+? auth
+
+recorder:
+  db_url: !secret recorder_db_url
+  purge_keep_days: 30
+
+# Enables the frontend
+? frontend
+
+# Enables configuration UI
+? config
+
+# hassio:
+
+# hdmi_cec:
+#   devices:
+#     TV: 0.0.0.0
+#     SHIELD: 4.1.0.0
+#     HASSIO: 4.3.0.0
+#     SWITCH: 4.4.0.0
+#     STEAM: 4.4.0.0
+
+influxdb:
+  host: !secret influxdb_host
+
+http:
+  # Uncomment this to add a password (recommended!)
+  api_password: !secret http_api_password
+  base_url: !secret http_base_url
+  use_x_forwarded_for: true
+  cors_allowed_origins:
+    - !secret http_base_domain
+  trusted_proxies:
+    - !secret http_trusted_proxy
+  trusted_networks:
+    - 172.16.10.0/24
+    - 172.16.9.0/24
+    - 172.17.0.0/24
+  ip_ban_enabled: True
+
+google_assistant:
+  project_id: !secret google_actions_project_id
+  api_key: !secret google_actions_api_key
+  #client_id: !secret google_actions_client_id
+  #access_token: !secret google_actions_action_token
+  exposed_domains:
+    - scene
+    - script
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+? discovery
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+# conversation
+
+# Enables support for tracking state changes over time
+? history
+
+# View all events in a logbook
+logbook:
+  include:
+    entities:
+      - switch.living_room_switch_switch
+    domains:
+      - light
+      - switch
+
+# Track the sun
+? sun
+
+# enable mqtt
+mqtt:
+  broker: !secret mqtt_broker
+  #discovery: true
+  #discovery_prefix: homeassistant
+
+zwave:
+  usb_path: /dev/ttyACM0
+
+# Text to speech
+tts:
+  - platform: google
+
+weather:
+  - platform: openweathermap
+    api_key: !secret openweathermap_api_key
+  - platform: darksky
+    api_key: !secret darksky_api_key
+
+device_tracker:
+  - platform: owntracks_http
+  - platform: asuswrt
+    host: !secret device_tracker_asus_host
+    username: !secret device_tracker_asus_username
+    mode: ap
+    ssh_key: !secret device_tracker_asus_ssh_key
+    new_device_defaults:
+      track_new_devices: false
+      hide_if_away: true
+
+# twilio:
+#   account_sid: !secret twilio_account_sid
+#   auth_token: !secret twilio_auth_token
+
+binary_sensor: !include binary_sensors.yaml
+media_player: !include media_players.yaml
+zone: !include zones.yaml
+notify: !include notify.yaml
+group: !include groups.yaml
+automation: !include automations.yaml
+sensor: !include sensors.yaml
+scene: !include scenes.yaml
+script: !include scripts.yaml
+switch: !include switches.yaml
+cover: !include covers.yaml
+light: !include lights.yaml
+
+history_graph:
+  temperature:
+    entities:
+      - sensor.yr_temperature
+      - sensor.front_door_motion_temperature
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+      - sensor.speedtest_ping
+
+dyson:
+  username: !secret dyson_username
+  password: !secret dyson_password
+  language: CA
+  devices:
+    - device_id: !secret dyson_device_1_name
+      device_ip: !secret dyson_device_1_ip
+
+logger:
+  default: debug
+  logs:
+    homeassistant.components.dyson: debug
+    libpurecoollink: debug
+    libpurecoollink.dyson_pure_cool_link: debug

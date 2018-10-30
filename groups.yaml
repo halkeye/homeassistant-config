@@ -1,0 +1,130 @@
+default_view:
+  view: true
+  icon: mdi:home
+  entities:
+    - group.people
+    - group.livingroom
+    - group.frontdoor
+    - group.master_bedroom
+    - group.kitchen
+    - group.second_bedroom
+    - group.outside
+    - group.network_status
+
+people:
+  view: false
+  name: People
+  entities:
+    - device_tracker.gavin_phone
+    - device_tracker.kim_phone
+    - device_tracker.shawn_phone
+
+scenes:
+  view: true
+  name: Scenes
+  entities:
+    - scene.lights_on
+    - scene.lights_off
+    - scene.dark_blinds
+    - scene.work_mode
+    - scene.daytime_mode
+    - scene.l1
+    - group.all_scripts
+    - script.goodnight
+    - script.lounge_mode
+    - script.morning_brief
+    - script.movie_mode
+
+livingroom:
+  name: Living Room
+  view: false
+  entities:
+  - switch.living_room_switch_switch
+  - switch.kitchen_lamp_switch
+  - switch.computer_lamp_switch
+  - switch.behind_tv_lamp_switch
+  - switch.bookshelf_switch
+  - binary_sensor.aeotec_zw100_multisensor_6_sensor
+  - light.ge_45606_2way_dimmer_switch_level
+  - light.media_center_lights
+  - switch.desk_blinds
+  - switch.far_living_room_blinds
+  - switch.living_room_blinds
+
+kitchen:
+  name: Kitchen
+  view: false
+  entities:
+  - light.kitchen_cabinets
+  - light.bar_light
+  - switch.kitchen_lamp_switch
+
+frontdoor:
+  name: Front Door
+  view: false
+  entities:
+  - binary_sensor.front_door_state_sensor
+  - sensor.front_door_motion_temperature
+  - binary_sensor.front_door_motion_sensor
+  - camera.front_door
+  - binary_sensor.sensative_strips_sensor
+
+zones:
+  name: Zones
+  entities:
+    - binary_sensor.floorplan
+
+master_bedroom:
+  name: Master Bedroom
+  view: false
+  entities:
+    - switch.master_bedroom_blinds
+
+second_bedroom:
+  name: Second Bedroom
+  view: false
+  entities:
+    - switch.second_bedroom_blinds
+
+outside:
+  name: "Outside"
+  view: false
+  entities:
+    - weather.openweathermap
+    - sun.sun
+    - sensor.moon
+    - sensor.yr_precipitation
+    - sensor.yr_temperature
+
+network_status:
+  name: "Network"
+  view: false
+  entities:
+    - binary_sensor.odin
+    - binary_sensor.blackpanther
+
+media_players:
+  view: yes
+  name: "Media Players"
+  entities:
+    - media_player.living_room_speaker
+    - media_player.shield
+    - media_player.master_bedroom_home
+
+ha_file_size:
+  view: no
+  entities:
+    - sensor.homeassistant_v2db
+    - sensor.homeassistantlog
+    
+HA:
+  view: yes
+  icon: mdi:home-assistant
+  entities:
+    - group.Home_Automation_Device_Status
+    - group.ha_server_monitor
+    - group.ha_version_info
+    - group.ha_file_size
+    - group.zwave
+    - group.batteries
+    - group.docker_containers

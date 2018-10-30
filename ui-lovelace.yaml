@@ -1,0 +1,225 @@
+title: My Awesome Home
+resources:
+  # https://community.home-assistant.io/t/lovelace-bringing-back-entity-filter-monster-card/58701/39
+  - url: /local/monster-card.js?v=1
+    type: js
+views:
+  - id: 0 # Automatically created id
+    title: Home
+    icon: mdi:home-assistant
+    cards:
+      - id: babc4bcd6f8d4349b89b8701d24e2c17 # Automatically created id
+        type: entities
+        show_header_toggle: false
+        entities:
+          - sensor.date
+          - sensor.friendly_date
+          - sensor.time
+      - id: 54b80c6346f243fa80b0a5fb56d69dba # Automatically created id
+        type: custom:monster-card
+        filter:
+          include:
+            - domain: device_tracker
+              state: home
+        card:
+          type: entities
+          title: People at home
+      - type: entities
+        show_header_toggle: false
+        title: Front Door
+        entities:
+          - binary_sensor.front_door_state_sensor
+          - sensor.front_door_motion_temperature
+          - binary_sensor.front_door_motion_sensor
+          - binary_sensor.sensative_strips_sensor
+
+      - id: 3560209b188a4414a9196301be34d554 # Automatically created id
+        type: entities
+        show_header_toggle: false
+        title: TV
+        entities:
+          - light.media_center_lights
+          - switch.behind_tv_lamp_switch
+          - switch.bookshelf_switch
+          - switch.living_room_blinds
+          - switch.far_living_room_blinds
+      - type: entities
+        show_header_toggle: false
+        title: Balcony
+        entities:
+          - light.patio_level
+      - id: 3560209b188a4414a9196301be34d554 # Automatically created id
+        type: entities
+        show_header_toggle: false
+        title: Office
+        entities:
+          - switch.computer_lamp_switch
+          - switch.desk_blinds
+          - cover.desk_blinds
+      - id: 5c9a3a0287d645beb0c826f715082b36 # Automatically created id
+        type: entities
+        title: Kitchen
+        show_header_toggle: false
+        entities:
+          - light.kitchen_cabinets
+          - light.bar_light
+          - switch.kitchen_lamp_switch
+      - type: entities
+        title: Master Bedroom
+        show_header_toggle: false
+        entities:
+          - switch.master_bedroom_blinds
+      - type: entities
+        title: Second Bedroom
+        show_header_toggle: false
+        entities:
+          - switch.second_bedroom_blinds
+  - id: 1 # Automatically created id
+    icon: mdi:settings
+    cards:
+      - type: entities
+        title: System
+        show_header_toggle: false
+        entities:
+          - sensor.homeassistant_v2db
+          - sensor.homeassistantlog
+          - sensor.ha_uptime
+      - id: 0dabe724acd54c8c8423bf5fbec61f15 # Automatically created id
+        type: entities
+        title: Network
+        show_header_toggle: false
+        entities:
+          - binary_sensor.odin
+          - binary_sensor.blackpanther
+      - type: vertical-stack
+        title: Network
+        cards:
+          - type: history-graph
+            title: Internet Speed
+            hours_to_show: 96
+            show_header_toggle: false
+            entities:
+              - sensor.speedtest_download
+              - sensor.speedtest_upload
+          - type: entities
+            title: Current Internet Speed
+            show_header_toggle: false
+            entities:
+              - sensor.speedtest_download
+              - sensor.speedtest_upload
+              - sensor.speedtest_ping
+  - id: 2 # Automatically created id
+    title: Scenes
+    icon: mdi:flower
+    cards:
+      - id: 4afb8d306df74dedb01d2436b7493dfb # Automatically created id
+        type: entities
+        show_header_toggle: false
+        title: Living Room
+        entities:
+          - scene.l1
+          - scene.lights_off
+          - scene.dark_blinds
+          - scene.work_mode
+          - scene.daytime_mode
+          - script.goodnight
+          - script.lounge_mode
+          - script.morning_brief
+          - script.movie_mode
+          - script.turn_off_tv
+          - script.red_light_mode
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: entity-button
+                entity: script.goodnight
+                icon: mdi:sleep
+                name: All Off
+                service: script.turn_on
+                tap_action: call-service
+          - type: horizontal-stack
+            cards:
+              - type: entity-button
+                entity: script.red_light_mode
+                icon: mdi:heart
+                name: Romantic
+                service: script.turn_on
+                tap_action: call-service
+              - type: entity-button
+                entity: script.movie_mode
+                icon: mdi:movie
+                name: Movie
+                service: script.turn_on
+                tap_action: call-service
+  - id: 3 # Automatically created id
+    title: Weather
+    icon: mdi:weather-partlycloudy
+    cards:
+      - id: f52a2457d8324fa8a6ee2c89a3ad4437 # Automatically created id
+        type: entities
+        show_header_toggle: false
+        title: Temperatures
+        entities:
+          - sun.sun
+          - sensor.dark_sky_nearest_storm_distance
+          - sensor.dark_sky_icon
+          - sensor.dark_sky_daytime_high_temperature
+          - sensor.dark_sky_overnight_low_temperature
+          - sensor.dark_sky_precip
+          - sensor.dark_sky_precip_intensity
+          - sensor.dark_sky_precip_probability
+          - sensor.dark_sky_summary
+          - sensor.dark_sky_temperature
+          - sensor.yr_precipitation
+          - sensor.yr_temperature
+      - id: 9c6e982019a240829c81e0123c1fb062 # Automatically created id
+        type: iframe
+        url: https://embed.windy.com/embed2.html
+        aspect_ratio: 100%
+      - type: weather-forecast
+        show_header_toggle: false
+        title: Weather
+        entity: weather.openweathermap
+      - type: weather-forecast
+        show_header_toggle: false
+        title: Weather
+        entity: weather.dark_sky
+  - title: Other
+    cards:
+      - id: 577db46844e348b69c0cf983b64d8bfc # Automatically created id
+        type: picture-entity
+        image: https://images.unsplash.com/photo-1504617063510-c86ab601b800?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=93f73eb263c9b213bf702fc1ad602923&auto=format&fit=crop&h=295&w=490&q=80
+        entity: light.bar_light
+      - id: 382e6f7d33824bc5928ca067abed18c2 # Automatically created id
+        type: picture-entity
+        image: https://images.unsplash.com/photo-1522319532979-f1c35f2f1ae8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=dd70fe27e4a5e65c51f779e3ac7b125d&auto=format&fit=crop&h=295&w=490&q=60
+        entity: light.kitchen_cabinets
+      - id: 6f504b03bbb341528e55eceb031edb05 # Automatically created id
+        type: custom:monster-card
+        card:
+          type: picture-glance
+          title: Lights
+          image: https://images.pexels.com/photos/356048/pexels-photo-356048.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=295&w=490
+        filter:
+          include:
+            - domain: light
+      - id: addda58915094890884a878dc178685c # Automatically created id
+        type: picture-glance
+        image: https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=240&w=495
+        title: Living Room
+        entities:
+          - light.media_center_lights
+          - switch.behind_tv_lamp_switch
+          - switch.bookshelf_switch
+          - switch.living_room_blinds
+          - switch.far_living_room_blinds
+      - type: entities
+        title: SpaceX
+        show_header_toggle: false
+        entities:
+          - sensor.spacex_next_mission_name
+          - sensor.spacex_next_launch_date
+          - sensor.spacex_next_launch_site
+          - sensor.spacex_next_landing_type
+          - sensor.spacex_next_rocket

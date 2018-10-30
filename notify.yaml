@@ -1,0 +1,13 @@
+- name: pushbullet
+  platform: pushbullet
+  api_key: !secret pushbullet_api_key
+- name: html5
+  platform: html5
+  gcm_api_key: !secret html5_gcm_api_key
+  gcm_sender_id: !secret html5_gcm_sender_id
+- name: sms
+  platform: twilio_sms
+  from_number: !secret twilio_number
+- name: AndroidTV
+  platform: nfandroidtv
+  host: !secret androidtv_host

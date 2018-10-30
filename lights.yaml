@@ -1,0 +1,58 @@
+- platform: group
+  name: "Living Room"
+  entities:
+    - light.media_center_lights
+- name: "Media Center Lights"
+  platform: mqtt
+  state_topic: MediaCenterLights/relay/0
+  command_topic: MediaCenterLights/relay/0/set
+  payload_on: 1
+  payload_off: 0
+  availability_topic: MediaCenterLights/status
+  payload_available: 1
+  payload_not_available: 0
+  brightness_state_topic: MediaCenterLights/brightness
+  brightness_command_topic: MediaCenterLights/brightness/set
+  rgb_state_topic: MediaCenterLights/rgb
+  rgb_command_topic: MediaCenterLights/rgb/set
+  color_temp_command_topic: MediaCenterLights/mired/set
+  white_value_state_topic: MediaCenterLights/channel/3
+  white_value_command_topic: MediaCenterLights/channel/3/set
+  effect: true
+  effect_list: [colorfade_slow, colorfade_fast, flash]
+- name: Bar Light
+  platform: mqtt
+  state_topic: BarLights/relay/0
+  command_topic: BarLights/relay/0/set
+  payload_on: 1
+  payload_off: 0
+  availability_topic: BarLights/status
+  payload_available: 1
+  payload_not_available: 0
+  brightness_state_topic: BarLights/brightness
+  brightness_command_topic: BarLights/brightness/set
+  rgb_state_topic: BarLights/rgb
+  rgb_command_topic: BarLights/rgb/set
+  color_temp_command_topic: BarLights/mired/set
+  white_value_state_topic: BarLights/channel/3
+  white_value_command_topic: BarLights/channel/3/set
+  effect: true
+  effect_list: [colorfade_slow, colorfade_fast, flash]
+- name: Kitchen Cabinets
+  platform: mqtt
+  state_topic: KitchenCabnetLights/relay/0
+  command_topic: KitchenCabnetLights/relay/0/set
+  payload_on: 1
+  payload_off: 0
+  availability_topic: KitchenCabnetLights/status
+  payload_available: 1
+  payload_not_available: 0
+  brightness_state_topic: KitchenCabnetLights/brightness
+  brightness_command_topic: KitchenCabnetLights/brightness/set
+  rgb_state_topic: KitchenCabnetLights/rgb
+  rgb_command_topic: KitchenCabnetLights/rgb/set
+  color_temp_command_topic: KitchenCabnetLights/mired/set
+  white_value_state_topic: KitchenCabnetLights/channel/3
+  white_value_command_topic: KitchenCabnetLights/channel/3/set
+  effect: true
+  effect_list: [colorfade_slow, colorfade_fast, flash]

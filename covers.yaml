@@ -1,0 +1,5 @@
+- platform: mqtt
+  name: "Desk Blinds"
+  command_topic: "home/blinds/set"
+  payload_on: "3|on"
+  payload_off: "3|off"
