@@ -23,3 +23,30 @@
   command_topic: "home/blinds/set"
   payload_on: "1|on"
   payload_off: "1|off"
+- platform: mqtt
+  name: "Shield"
+  state_topic: "media/cec/8"
+  state_on: "on"
+  state_off: "off"
+  command_topic: "media/cec/8/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+- platform: mqtt
+  name: "Stereo"
+  state_topic: "media/cec/5"
+  state_on: "on"
+  state_off: "off"
+  command_topic: "media/cec/5/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+- platform: mqtt
+  name: "TV"
+  state_topic: "media/cec/0"
+  state_on: "on"
+  state_off: "off"
+  command_topic: "media/cec/0/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
