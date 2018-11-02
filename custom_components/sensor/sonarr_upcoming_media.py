@@ -1,0 +1,1 @@
+../../external_components/sensor.sonarr_upcoming_media/custom_components/sensor/sonarr_upcoming_media.py

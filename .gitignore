@@ -19,3 +19,4 @@ plex.conf
 ssh_homeassistant.txt
 known_devices.yaml
 pyozw.sqlite
+__pycache__

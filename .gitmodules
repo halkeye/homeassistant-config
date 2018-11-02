@@ -1,0 +1,15 @@
+[submodule "external_components/sensor.sonarr_upcoming_media"]
+	path = external_components/sensor.sonarr_upcoming_media
+	url = https://github.com/custom-components/sensor.sonarr_upcoming_media.git
+[submodule "external_components/sensor.radarr_upcoming_media"]
+	path = external_components/sensor.radarr_upcoming_media
+	url = https://github.com/custom-components/sensor.radarr_upcoming_media.git
+[submodule "external_components/upcoming-media-card"]
+	path = external_components/upcoming-media-card
+	url = https://github.com/custom-cards/upcoming-media-card.git
+[submodule "external_components/tracker-card"]
+	path = external_components/tracker-card
+	url = https://github.com/custom-cards/tracker-card.git
+[submodule "external_components/custom_updater"]
+	path = external_components/custom_updater
+	url = https://github.com/custom-components/custom_updater

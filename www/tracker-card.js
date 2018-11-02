@@ -1,0 +1,1 @@
+../external_components/tracker-card/tracker-card.js
