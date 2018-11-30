@@ -55,7 +55,7 @@ views:
         title: Balcony
         entities:
           - light.patio_level
-      - id: 3560209b188a4414a9196301be34d554 # Automatically created id
+      - id: lovelace-0-office # Automatically created id
         type: entities
         show_header_toggle: false
         title: Office

@@ -1,4 +1,4 @@
-default_view:
+new_default_view:
   view: true
   icon: mdi:home
   entities:
@@ -39,35 +39,35 @@ livingroom:
   name: Living Room
   view: false
   entities:
-  - switch.living_room_switch_switch
-  - switch.kitchen_lamp_switch
-  - switch.computer_lamp_switch
-  - switch.behind_tv_lamp_switch
-  - switch.bookshelf_switch
-  - binary_sensor.aeotec_zw100_multisensor_6_sensor
-  - light.ge_45606_2way_dimmer_switch_level
-  - light.media_center_lights
-  - switch.desk_blinds
-  - switch.far_living_room_blinds
-  - switch.living_room_blinds
+    - switch.living_room_switch_switch
+    - switch.kitchen_lamp_switch
+    - switch.computer_lamp_switch
+    - switch.behind_tv_lamp_switch
+    - switch.bookshelf_switch
+    - binary_sensor.aeotec_zw100_multisensor_6_sensor
+    - light.ge_45606_2way_dimmer_switch_level
+    - light.media_center_lights
+    - switch.desk_blinds
+    - switch.far_living_room_blinds
+    - switch.living_room_blinds
 
 kitchen:
   name: Kitchen
   view: false
   entities:
-  - light.kitchen_cabinets
-  - light.bar_light
-  - switch.kitchen_lamp_switch
+    - light.kitchen_cabinets
+    - light.bar_light
+    - switch.kitchen_lamp_switch
 
 frontdoor:
   name: Front Door
   view: false
   entities:
-  - binary_sensor.front_door_state_sensor
-  - sensor.front_door_motion_temperature
-  - binary_sensor.front_door_motion_sensor
-  - camera.front_door
-  - binary_sensor.sensative_strips_sensor
+    - binary_sensor.front_door_state_sensor
+    - sensor.front_door_motion_temperature
+    - binary_sensor.front_door_motion_sensor
+    - camera.front_door
+    - binary_sensor.sensative_strips_sensor
 
 zones:
   name: Zones
@@ -103,20 +103,12 @@ network_status:
     - binary_sensor.odin
     - binary_sensor.blackpanther
 
-media_players:
-  view: yes
-  name: "Media Players"
-  entities:
-    - media_player.living_room_speaker
-    - media_player.shield
-    - media_player.master_bedroom_home
-
 ha_file_size:
   view: no
   entities:
     - sensor.homeassistant_v2db
     - sensor.homeassistantlog
-    
+
 HA:
   view: yes
   icon: mdi:home-assistant
