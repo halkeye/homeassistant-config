@@ -15,7 +15,7 @@ people:
   view: false
   name: People
   entities:
-    - device_tracker.gavin_phone
+    - device_tracker.gavin_mogan_pixel2xl
     - device_tracker.kim_phone
     - device_tracker.shawn_phone
 

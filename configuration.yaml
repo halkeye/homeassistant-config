@@ -15,8 +15,6 @@ homeassistant:
   auth_providers:
     - type: homeassistant
     - type: trusted_networks
-    # needed for owntracks for now
-    - type: legacy_api_password
   customize:
     light.bar_light:
       friendly_name: Bar Lights
@@ -162,8 +160,9 @@ asuswrt:
   mode: ap
   ssh_key: !secret device_tracker_asus_ssh_key
 
+owntracks:
+
 device_tracker:
-  - platform: owntracks_http
   - platform: asuswrt
     new_device_defaults:
       track_new_devices: false
