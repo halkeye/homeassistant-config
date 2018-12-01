@@ -1,4 +1,9 @@
 - platform: asuswrt
+- platform: tautulli
+  api_key: !secret tautulli_api_key
+  host: !secret tautulli_hostname
+  ssl: true
+  port: 443
 - platform: yr
   monitored_conditions:
     - temperature
