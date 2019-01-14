@@ -13,3 +13,9 @@
 [submodule "external_components/custom_updater"]
 	path = external_components/custom_updater
 	url = https://github.com/custom-components/custom_updater
+[submodule "external_components/text-element"]
+	path = external_components/text-element
+	url = https://github.com/custom-cards/text-element
+[submodule "external_components/state-attribute-element"]
+	path = external_components/state-attribute-element
+	url = https://github.com/custom-cards/state-attribute-element

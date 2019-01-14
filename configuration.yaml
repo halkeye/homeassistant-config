@@ -54,6 +54,9 @@ homeassistant:
     group.all_switches:
       hidden: false
 
+lovelace:
+  mode: yaml
+
 auth:
 
 custom_updater:
@@ -208,3 +211,9 @@ logger:
     homeassistant.components.dyson: debug
     libpurecoollink: debug
     libpurecoollink.dyson_pure_cool_link: debug
+
+panel_custom:
+  - name: zwavegraph2
+    sidebar_title: ZWave Graph2
+    sidebar_icon: mdi:access-point-network
+    url_path: zwave
