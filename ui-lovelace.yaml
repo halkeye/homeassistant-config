@@ -109,23 +109,6 @@ views:
         entities:
           - binary_sensor.odin
           - binary_sensor.blackpanther
-      - type: vertical-stack
-        title: Network
-        cards:
-          - type: history-graph
-            title: Internet Speed
-            hours_to_show: 96
-            show_header_toggle: false
-            entities:
-              - sensor.speedtest_download
-              - sensor.speedtest_upload
-          - type: entities
-            title: Current Internet Speed
-            show_header_toggle: false
-            entities:
-              - sensor.speedtest_download
-              - sensor.speedtest_upload
-              - sensor.speedtest_ping
       - type: picture-elements
         title: Tautulli card
         icon: mdi:plex

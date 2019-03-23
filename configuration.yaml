@@ -193,9 +193,6 @@ history_graph:
     entities:
       - sensor.yr_temperature
       - sensor.front_door_motion_temperature
-      - sensor.speedtest_download
-      - sensor.speedtest_upload
-      - sensor.speedtest_ping
 
 dyson:
   username: !secret dyson_username
