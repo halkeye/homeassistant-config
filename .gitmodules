@@ -22,3 +22,15 @@
 [submodule "www/custom-lovelace/upcoming-media-card"]
 	path = www/custom-lovelace/upcoming-media-card
 	url = https://github.com/custom-cards/upcoming-media-card.git
+[submodule "www/ciotlosm-custom-lovelace"]
+	path = www/ciotlosm-custom-lovelace
+	url = http://github.com/ciotlosm/custom-lovelace.git
+[submodule "www/state-attribute-element"]
+	path = www/state-attribute-element
+	url = https://github.com/custom-cards/state-attribute-element.git
+[submodule "www/text-element"]
+	path = www/text-element
+	url = https://github.com/custom-cards/text-element.git
+[submodule "www/tracker-card"]
+	path = www/tracker-card
+	url = https://github.com/custom-cards/tracker-card.git
