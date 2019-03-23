@@ -99,8 +99,8 @@ views:
         title: System
         show_header_toggle: false
         entities:
-          - sensor.homeassistant_v2db
-          - sensor.homeassistantlog
+          - sensor.home_assistant_v2_db
+          - sensor.home_assistant_log
           - sensor.ha_uptime
       - id: 0dabe724acd54c8c8423bf5fbec61f15 # Automatically created id
         type: entities
