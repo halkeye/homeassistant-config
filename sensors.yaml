@@ -1,4 +1,4 @@
-- platform: asuswrt
+# - platform: asuswrt
 - platform: tautulli
   api_key: !secret tautulli_api_key
   host: !secret tautulli_hostname
@@ -65,22 +65,6 @@
     - /config/home-assistant_v2.db
     - /config/home-assistant.log
 
-- platform: speedtest
-  server_id: 14487
-  hour:
-    - 0
-    - 3
-    - 6
-    - 9
-    - 12
-    - 15
-    - 18
-    - 21
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-
 - platform: uptime
   name: HA Uptime
   unit_of_measurement: hours
@@ -126,3 +110,10 @@
   days: 60
   ssl: true
   theaters: false
+- platform: trakt
+  id: !secret trakt_client_id
+  secret: !secret trakt_client_secret
+  username: halkeye
+  days: 10
+  exclude:
+    'The Bachelor'

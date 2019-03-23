@@ -15,6 +15,8 @@ homeassistant:
   auth_providers:
     - type: homeassistant
     - type: trusted_networks
+      trusted_networks:
+        - !secret http_trusted_proxy
   customize:
     light.bar_light:
       friendly_name: Bar Lights
@@ -62,7 +64,7 @@ auth:
 custom_updater:
 
 recorder:
-  db_url: !secret recorder_db_url
+#  db_url: !secret recorder_db_url
   purge_keep_days: 30
 
 # Enables the frontend
@@ -73,17 +75,6 @@ config:
 
 # hassio:
 
-# hdmi_cec:
-#   devices:
-#     TV: 0.0.0.0
-#     SHIELD: 4.1.0.0
-#     HASSIO: 4.3.0.0
-#     SWITCH: 4.4.0.0
-#     STEAM: 4.4.0.0
-
-influxdb:
-  host: !secret influxdb_host
-
 http:
   # Uncomment this to add a password (recommended!)
   api_password: !secret http_api_password
@@ -93,29 +84,17 @@ http:
     - !secret http_base_domain
   trusted_proxies:
     - !secret http_trusted_proxy
-  # trusted_networks:
-  #   - 172.16.10.0/24
-  #   - 172.16.9.0/24
-  #   - 172.17.0.0/24
-  ip_ban_enabled: True
+  ip_ban_enabled: true
 
 google_assistant:
   project_id: !secret google_actions_project_id
   api_key: !secret google_actions_api_key
-  #client_id: !secret google_actions_client_id
-  #access_token: !secret google_actions_action_token
   exposed_domains:
     - scene
     - script
 
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
+  include_used_components: true
 
 # Discover some devices automatically
 discovery:
@@ -141,8 +120,6 @@ sun:
 # enable mqtt
 mqtt:
   broker: !secret mqtt_broker
-  #discovery: true
-  #discovery_prefix: homeassistant
 
 zwave:
   usb_path: /dev/ttyACM0
@@ -157,23 +134,11 @@ weather:
   - platform: darksky
     api_key: !secret darksky_api_key
 
-asuswrt:
-  host: !secret device_tracker_asus_host
-  username: !secret device_tracker_asus_username
-  mode: ap
-  ssh_key: !secret device_tracker_asus_ssh_key
-
 owntracks:
 
-device_tracker:
-  - platform: asuswrt
-    new_device_defaults:
-      track_new_devices: false
-      hide_if_away: true
-
-# twilio:
-#   account_sid: !secret twilio_account_sid
-#   auth_token: !secret twilio_auth_token
+twilio:
+  account_sid: !secret twilio_account_sid
+  auth_token: !secret twilio_auth_token
 
 binary_sensor: !include binary_sensors.yaml
 media_player: !include media_players.yaml
@@ -201,13 +166,6 @@ dyson:
   devices:
     - device_id: !secret dyson_device_1_name
       device_ip: !secret dyson_device_1_ip
-
-logger:
-  default: debug
-  logs:
-    homeassistant.components.dyson: debug
-    libpurecoollink: debug
-    libpurecoollink.dyson_pure_cool_link: debug
 
 panel_custom:
   - name: zwavegraph2

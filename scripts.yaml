@@ -37,13 +37,7 @@ movie_mode:
       data:
         entity_id: light.media_center_lights
         brightness: 140
-        effect: colorfade_slow
-    - service: hdmi_cec.power_on
-      data:
-        device: TV
-    - service: hdmi_cec.select_device
-      data:
-        device: SHIELD
+        # effect: colorfade_slow
     - service: switch.turn_on
       data:
         entity_id: switch.living_room_blinds
@@ -53,6 +47,12 @@ movie_mode:
     - service: switch.turn_on
       data:
         entity_id: switch.desk_blinds
+    - service: hdmi_cec.power_on
+      data:
+        device: TV
+    - service: hdmi_cec.select_device
+      data:
+        device: SHIELD
 goodnight:
   alias: Goodnight
   sequence:

@@ -18,8 +18,8 @@
   color_temp_command_topic: MediaCenterLights/mired/set
   white_value_state_topic: MediaCenterLights/channel/3
   white_value_command_topic: MediaCenterLights/channel/3/set
-  effect: true
-  effect_list: [colorfade_slow, colorfade_fast, flash]
+  #effect: true
+  #effect_list: [colorfade_slow, colorfade_fast, flash]
 - name: Bar Light
   platform: mqtt
   state_topic: BarLights/relay/0
@@ -36,8 +36,8 @@
   color_temp_command_topic: BarLights/mired/set
   white_value_state_topic: BarLights/channel/3
   white_value_command_topic: BarLights/channel/3/set
-  effect: true
-  effect_list: [colorfade_slow, colorfade_fast, flash]
+  #effect: true
+  #effect_list: [colorfade_slow, colorfade_fast, flash]
 - name: Kitchen Cabinets
   platform: mqtt
   state_topic: KitchenCabnetLights/relay/0
@@ -54,5 +54,5 @@
   color_temp_command_topic: KitchenCabnetLights/mired/set
   white_value_state_topic: KitchenCabnetLights/channel/3
   white_value_command_topic: KitchenCabnetLights/channel/3/set
-  effect: true
-  effect_list: [colorfade_slow, colorfade_fast, flash]
+  #effect: true
+  #effect_list: [colorfade_slow, colorfade_fast, flash]
