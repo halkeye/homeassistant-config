@@ -76,8 +76,6 @@ config:
 # hassio:
 
 http:
-  # Uncomment this to add a password (recommended!)
-  api_password: !secret http_api_password
   base_url: !secret http_base_url
   use_x_forwarded_for: true
   cors_allowed_origins:

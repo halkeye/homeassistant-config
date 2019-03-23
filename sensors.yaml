@@ -110,10 +110,11 @@
   days: 60
   ssl: true
   theaters: false
+
 - platform: trakt
   id: !secret trakt_client_id
   secret: !secret trakt_client_secret
   username: halkeye
   days: 10
   exclude:
-    'The Bachelor'
+    - 'The Bachelor'
