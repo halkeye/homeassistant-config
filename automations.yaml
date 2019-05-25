@@ -1,3 +1,4 @@
+---
 - id: "switch_turning_on"
   alias: Switch is turned on
   trigger:
