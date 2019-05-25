@@ -95,25 +95,25 @@
       friendly_name: "Mission Name"
       value_template: '{{ states.sensor.spacex.attributes["mission_name"] }}'
 
-- platform: sonarr_upcoming_media
-  api_key: !secret sonarr_api_key
-  host: !secret sonarr_hostname
-  port: 443
-  days: 7
-  ssl: true
-
-- platform: radarr_upcoming_media
-  api_key: !secret radarr_api_key
-  host: !secret radarr_hostname
-  port: 443
-  days: 60
-  ssl: true
-  theaters: false
-
-- platform: trakt
-  id: !secret trakt_client_id
-  secret: !secret trakt_client_secret
-  username: halkeye
-  days: 10
-  exclude:
-    - 'The Bachelor'
+#- platform: sonarr_upcoming_media
+#  api_key: !secret sonarr_api_key
+#  host: !secret sonarr_hostname
+#  port: 443
+#  days: 7
+#  ssl: true
+#
+#- platform: radarr_upcoming_media
+#  api_key: !secret radarr_api_key
+#  host: !secret radarr_hostname
+#  port: 443
+#  days: 60
+#  ssl: true
+#  theaters: false
+#
+#- platform: trakt
+#  id: !secret trakt_client_id
+#  secret: !secret trakt_client_secret
+#  username: halkeye
+#  days: 10
+#  exclude:
+#    - 'The Bachelor'

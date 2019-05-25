@@ -265,11 +265,14 @@ views:
     title: Media
     cards:
       - type: custom:upcoming-media-card
+        title: "Upcoming Movies"
+        entity: sensor.radarr_upcoming_media
+      - type: custom:upcoming-media-card
         title: "Upcoming TV Shows"
         entity: sensor.sonarr_upcoming_media
       - type: custom:upcoming-media-card
-        title: "Upcoming Movies"
-        entity: sensor.radarr_upcoming_media
+        title: "Trakt"
+        entity: sensor.trakt_upcoming_calendar
   - id: automations
     title: Automations
     icon: mdi:home-automation
