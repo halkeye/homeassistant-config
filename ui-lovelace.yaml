@@ -270,3 +270,25 @@ views:
       - type: custom:upcoming-media-card
         title: "Upcoming Movies"
         entity: sensor.radarr_upcoming_media
+  - id: automations
+    title: Automations
+    icon: mdi:home-automation
+    cards:
+      - type: custom:monster-card
+        show_empty: false
+        card:
+          type: entities
+          title: 'On'
+        filter:
+          include:
+            - entity_id: "automation.*"
+              state: "on"
+      - type: custom:monster-card
+        show_empty: false
+        card:
+          type: entities
+          title: 'Off'
+        filter:
+          include:
+            - entity_id: "automation.*"
+              state: "off"
