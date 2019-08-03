@@ -5,8 +5,6 @@ resources:
     type: js
   - url: /local/tracker-card/tracker-card.js?v=0&track=true
     type: js
-  - url: /local/custom-lovelace/upcoming-media-card/upcoming-media-card.js?track=true
-    type: js
   - url: /local/state-attribute-element/state-attribute-element.js?v=0&track=true
     type: js
   - url: /local/text-element/text-element.js?v=0&track=true
@@ -66,7 +64,6 @@ views:
         entities:
           - switch.computer_lamp_switch
           - switch.desk_blinds
-          - cover.desk_blinds
           - fan.purifier_cool_tower
           - sensor.purifier_cool_tower_temperature
       - id: 5c9a3a0287d645beb0c826f715082b36 # Automatically created id
@@ -90,11 +87,6 @@ views:
   - id: 1 # Automatically created id
     icon: mdi:settings
     cards:
-      - type: custom:tracker-card
-        title: "Updates"
-        trackers:
-          - sensor.custom_card_tracker
-          - sensor.custom_component_tracker
       - type: entities
         title: System
         show_header_toggle: false
@@ -109,41 +101,6 @@ views:
         entities:
           - binary_sensor.odin
           - binary_sensor.blackpanther
-      - type: picture-elements
-        title: Tautulli card
-        icon: mdi:plex
-        image: /local/plex.jpg
-        elements:
-          - type: custom:state-attribute-element
-            entity: sensor.tautulli
-            attribute: "Top Movie"
-            show_empty: true
-            prefix: "<b style='color: orange; margin-right: 5px'>Most played movie: </b><br />"
-            style:
-              top: 00%
-              left: 15px
-              color: white
-              transform: none
-          - type: custom:state-attribute-element
-            entity: sensor.tautulli
-            attribute: "Top TV Show"
-            show_empty: true
-            prefix: "<b style='color: orange; margin-right: 11px'>Most played show: </b><br />"
-            style:
-              top: 30%
-              left: 15px
-              color: white
-              transform: none
-          - type: custom:state-attribute-element
-            entity: sensor.tautulli
-            attribute: "Top User"
-            show_empty: true
-            prefix: "<b style='color: orange; margin-right: 20px'>Most active user: </b><br />"
-            style:
-              top: 60%
-              left: 15px
-              color: white
-              transform: none
   - id: 2 # Automatically created id
     title: Scenes
     icon: mdi:flower
@@ -260,19 +217,6 @@ views:
           - sensor.spacex_next_launch_site
           - sensor.spacex_next_landing_type
           - sensor.spacex_next_rocket
-  - id: 5 # Automatically created id
-    icon: mdi:filmstrip
-    title: Media
-    cards:
-      - type: custom:upcoming-media-card
-        title: "Upcoming Movies"
-        entity: sensor.radarr_upcoming_media
-      - type: custom:upcoming-media-card
-        title: "Upcoming TV Shows"
-        entity: sensor.sonarr_upcoming_media
-      - type: custom:upcoming-media-card
-        title: "Trakt"
-        entity: sensor.trakt_upcoming_calendar
   - id: automations
     title: Automations
     icon: mdi:home-automation

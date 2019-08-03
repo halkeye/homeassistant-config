@@ -1,34 +1,7 @@
-# - platform: asuswrt
-- platform: tautulli
-  api_key: !secret tautulli_api_key
-  host: !secret tautulli_hostname
-  ssl: true
-  port: 443
 - platform: yr
   monitored_conditions:
     - temperature
     - precipitation
-# - platform: transmission
-#   host: !secret transmission_host
-#   port: !secret transmission_port
-#   username: !secret transmission_user
-#   password: !secret transmission_pass
-#   monitored_variables:
-#     - 'current_status'
-#     - 'download_speed'
-#     - 'upload_speed'
-# # Reformat the speed sensors to be in Kbp/s
-# - platform: template
-#   sensors:
-#     transmission_down_speed_kbps:
-#       value_template: '{{ states.sensor.transmission_down_speed.state | multiply(1024) }}'
-#       friendly_name: 'Transmission Down Speed'
-#       unit_of_measurement: 'kB/s'
-#     transmission_up_speed_kbps:
-#       value_template: '{{ states.sensor.transmission_up_speed.state | multiply(1024) }}'
-#       friendly_name: 'Transmission Up Speed'
-#       unit_of_measurement: 'kB/s'
-#- platform: moon
 
 - platform: time_date
   display_options:
