@@ -208,15 +208,6 @@ views:
           - switch.bookshelf_switch
           - switch.living_room_blinds
           - switch.far_living_room_blinds
-      - type: entities
-        title: SpaceX
-        show_header_toggle: false
-        entities:
-          - sensor.spacex_next_mission_name
-          - sensor.spacex_next_launch_date
-          - sensor.spacex_next_launch_site
-          - sensor.spacex_next_landing_type
-          - sensor.spacex_next_rocket
   - id: automations
     title: Automations
     icon: mdi:home-automation
