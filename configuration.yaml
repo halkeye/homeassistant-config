@@ -61,10 +61,11 @@ lovelace:
 
 auth:
 
-custom_updater:
+# custom_updater:
+system_health:
 
 recorder:
-#  db_url: !secret recorder_db_url
+  #  db_url: !secret recorder_db_url
   purge_keep_days: 30
 
 # Enables the frontend
@@ -80,6 +81,7 @@ http:
   use_x_forwarded_for: true
   cors_allowed_origins:
     - !secret http_base_domain
+    - https://cast.home-assistant.io
   trusted_proxies:
     - !secret http_trusted_proxy
   ip_ban_enabled: true
@@ -118,6 +120,7 @@ sun:
 # enable mqtt
 mqtt:
   broker: !secret mqtt_broker
+  discovery: true
 
 zwave:
   usb_path: /dev/ttyACM0
@@ -151,6 +154,8 @@ script: !include scripts.yaml
 switch: !include switches.yaml
 cover: !include covers.yaml
 light: !include lights.yaml
+camera: !include cameras.yaml
+shell_command: !include shell_commands.yaml
 
 history_graph:
   temperature:
@@ -171,3 +176,13 @@ panel_custom:
     sidebar_title: ZWave Graph2
     sidebar_icon: mdi:access-point-network
     url_path: zwave
+# unifi:
+#   controllers:
+#     - host: !secret device_tracker_unifi_host
+#       # username: !secret device_tracker_unifi_username
+#       # password: !secret device_tracker_unifi_password
+#       site: !secret device_tracker_unifi_site_name
+
+cast:
+  media_player:
+    #- host: 172.16.10.175

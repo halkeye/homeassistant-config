@@ -1,0 +1,3 @@
+- platform: ffmpeg
+  name: Raspicam1
+  input: tcp://rpicam1:9000

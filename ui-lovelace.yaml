@@ -21,15 +21,25 @@ views:
           - sensor.date
           - sensor.friendly_date
           - sensor.time
-      - id: 54b80c6346f243fa80b0a5fb56d69dba # Automatically created id
-        type: custom:monster-card
-        filter:
-          include:
-            - domain: device_tracker
-              state: home
-        card:
-          type: entities
-          title: People at home
+
+      - id: people # Automatically created id
+        type: entities
+        title: People
+        show_header_toggle: false
+        entities:
+          - device_tracker.gavin_phone
+          - device_tracker.cb_gavinmogan
+          - device_tracker.jarvis
+          - sensor.gavin_keys
+
+        # type: custom:monster-card
+        # filter:
+        #   include:
+        #     - domain: device_tracker
+        #       state: home
+        # card:
+        #   type: entities
+        #   title: People at home
       - type: entities
         show_header_toggle: false
         title: Front Door
@@ -38,6 +48,7 @@ views:
           - sensor.front_door_motion_temperature
           - binary_sensor.front_door_motion_sensor
           - binary_sensor.sensative_strips_sensor
+          - camera.raspicam1
 
       - id: 3560209b188a4414a9196301be34d554 # Automatically created id
         type: entities
@@ -52,11 +63,13 @@ views:
           - switch.shield
           - switch.tv
           - switch.stereo
+
       - type: entities
         show_header_toggle: false
         title: Balcony
         entities:
           - light.patio_level
+
       - id: lovelace-0-office # Automatically created id
         type: entities
         show_header_toggle: false
@@ -66,6 +79,7 @@ views:
           - switch.desk_blinds
           - fan.purifier_cool_tower
           - sensor.purifier_cool_tower_temperature
+
       - id: 5c9a3a0287d645beb0c826f715082b36 # Automatically created id
         type: entities
         title: Kitchen
@@ -74,11 +88,13 @@ views:
           - light.kitchen_cabinets
           - light.bar_light
           - switch.kitchen_lamp_switch
+
       - type: entities
         title: Master Bedroom
         show_header_toggle: false
         entities:
           - switch.master_bedroom_blinds
+
       - type: entities
         title: Second Bedroom
         show_header_toggle: false
@@ -216,7 +232,7 @@ views:
         show_empty: false
         card:
           type: entities
-          title: 'On'
+          title: "On"
         filter:
           include:
             - entity_id: "automation.*"
@@ -225,7 +241,7 @@ views:
         show_empty: false
         card:
           type: entities
-          title: 'Off'
+          title: "Off"
         filter:
           include:
             - entity_id: "automation.*"

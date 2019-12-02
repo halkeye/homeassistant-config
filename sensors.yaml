@@ -1,3 +1,11 @@
+- platform: mqtt_room
+  # room_presence/default-room {"id":"2f234454cf6d4a0fadf2f4911ba9ffa6-0-1","rssi":-80,"uuid":"2f234454cf6d4a0fadf2f4911ba9ffa6","major":0,"minor":1,"distance":1.4385398790695363}
+  #state_topic: 'room_presence/default-room'
+  state_topic: 'room_presence'
+  device_id: '2f234454cf6d4a0fadf2f4911ba9ffa6-0-1'
+  away_timeout: 30
+  name: "Gavin keys"
+
 - platform: yr
   monitored_conditions:
     - temperature

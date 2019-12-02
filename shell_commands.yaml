@@ -1,0 +1,1 @@
+record_raspicam_minute: ffmpeg -i tcp://rpicam1:9000 -an -c:v copy -t 00:01:00 /var/tmp/raspicam-{{ now().strftime("%Y-%m-%d_%H-%M-%S") }}.mkv

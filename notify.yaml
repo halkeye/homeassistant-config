@@ -1,7 +1,8 @@
 - name: html5
   platform: html5
-  gcm_api_key: !secret html5_gcm_api_key
-  gcm_sender_id: !secret html5_gcm_sender_id
+  vapid_pub_key: !secret html5_vapid_pub_key
+  vapid_prv_key: !secret html5_vapid_private_key
+  vapid_email: !secret html5_vapid_email
 - name: sms
   platform: twilio_sms
   from_number: !secret twilio_number
