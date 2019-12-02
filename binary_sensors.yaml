@@ -2,8 +2,8 @@
   state_topic: dummy/floorplan/sensor
   name: Floorplan
 - platform: ping
-  host: odin.gavinmogan.com
+  host: odin.dhcp.home
   name: Odin
 - platform: ping
-  host: blackpanther.gavinmogan.com
+  host: blackpanther.dhcp.home
   name: Blackpanther
