@@ -35,7 +35,7 @@
       entity_id: scene.dark_blinds
 - id: "open_blinds_in_morning"
   alias: Open blinds at 8:30am
-  initial_state: "off"
+  #initial_state: "off"
   trigger:
     - platform: time
       at: "8:30:00"

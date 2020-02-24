@@ -88,7 +88,6 @@ http:
 
 google_assistant:
   project_id: !secret google_actions_project_id
-  api_key: !secret google_actions_api_key
   exposed_domains:
     - scene
     - script

@@ -99,23 +99,6 @@ views:
         show_header_toggle: false
         entities:
           - switch.second_bedroom_blinds
-  - id: 1 # Automatically created id
-    icon: mdi:settings
-    cards:
-      - type: entities
-        title: System
-        show_header_toggle: false
-        entities:
-          - sensor.home_assistant_v2_db
-          - sensor.home_assistant_log
-          - sensor.ha_uptime
-      - id: 0dabe724acd54c8c8423bf5fbec61f15 # Automatically created id
-        type: entities
-        title: Network
-        show_header_toggle: false
-        entities:
-          - binary_sensor.odin
-          - binary_sensor.blackpanther
   - id: 2 # Automatically created id
     title: Scenes
     icon: mdi:flower
@@ -245,3 +228,20 @@ views:
           include:
             - entity_id: "automation.*"
               state: "off"
+  - id: 1 # Automatically created id
+    icon: mdi:settings
+    cards:
+      - type: entities
+        title: System
+        show_header_toggle: false
+        entities:
+          - sensor.home_assistant_v2_db
+          - sensor.home_assistant_log
+          - sensor.ha_uptime
+      - id: 0dabe724acd54c8c8423bf5fbec61f15 # Automatically created id
+        type: entities
+        title: Network
+        show_header_toggle: false
+        entities:
+          - binary_sensor.odin
+          - binary_sensor.blackpanther
