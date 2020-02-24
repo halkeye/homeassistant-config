@@ -199,24 +199,24 @@ views:
     cards:
       - id: 577db46844e348b69c0cf983b64d8bfc # Automatically created id
         type: picture-entity
-        image: https://images.unsplash.com/photo-1504617063510-c86ab601b800?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=93f73eb263c9b213bf702fc1ad602923&auto=format&fit=crop&h=295&w=490&q=80
+        image: "local/bar-lights.jpg"
         entity: light.bar_light
       - id: 382e6f7d33824bc5928ca067abed18c2 # Automatically created id
         type: picture-entity
-        image: https://images.unsplash.com/photo-1522319532979-f1c35f2f1ae8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=dd70fe27e4a5e65c51f779e3ac7b125d&auto=format&fit=crop&h=295&w=490&q=60
+        image: "local/kitchen_cabinets.jpg"
         entity: light.kitchen_cabinets
       - id: 6f504b03bbb341528e55eceb031edb05 # Automatically created id
         type: custom:monster-card
         card:
           type: picture-glance
           title: Lights
-          image: https://images.pexels.com/photos/356048/pexels-photo-356048.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=295&w=490
+          image: "local/pexels-photo-356048.jpeg"
         filter:
           include:
             - domain: light
       - id: addda58915094890884a878dc178685c # Automatically created id
         type: picture-glance
-        image: https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=240&w=495
+        image: "local/pexels-photo-276724.jpeg"
         title: Living Room
         entities:
           - light.media_center_lights
