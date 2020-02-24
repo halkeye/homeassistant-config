@@ -28,7 +28,6 @@ views:
         show_header_toggle: false
         entities:
           - device_tracker.gavin_phone
-          - device_tracker.cb_gavinmogan
           - device_tracker.jarvis
           - sensor.gavin_keys
 
@@ -163,7 +162,7 @@ views:
                 tap_action: call-service
   - id: 3 # Automatically created id
     title: Weather
-    icon: mdi:weather-partlycloudy
+    icon: mdi:weather-partly-cloudy
     cards:
       - id: f52a2457d8324fa8a6ee2c89a3ad4437 # Automatically created id
         type: entities
