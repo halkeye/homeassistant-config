@@ -22,9 +22,6 @@
 [submodule "www/custom-lovelace/upcoming-media-card"]
 	path = www/custom-lovelace/upcoming-media-card
 	url = https://github.com/custom-cards/upcoming-media-card.git
-[submodule "www/ciotlosm-custom-lovelace"]
-	path = www/ciotlosm-custom-lovelace
-	url = http://github.com/ciotlosm/custom-lovelace.git
 [submodule "www/state-attribute-element"]
 	path = www/state-attribute-element
 	url = https://github.com/custom-cards/state-attribute-element.git
@@ -37,3 +34,6 @@
 [submodule "secrets"]
 	path = homeassistant-config-secrets
 	url = git@github.com:halkeye/homeassistant-config-secrets.git
+[submodule "www/auto-entities"]
+	path = www/auto-entities
+	url = https://github.com/thomasloven/lovelace-auto-entities.git

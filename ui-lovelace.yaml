@@ -1,13 +1,13 @@
 title: My Awesome Home
 resources:
   # https://community.home-assistant.io/t/lovelace-bringing-back-entity-filter-monster-card/58701/39
-  - url: /local/ciotlosm-custom-lovelace/monster-card/monster-card.js?v=1&track=true
-    type: js
   - url: /local/tracker-card/tracker-card.js?v=0&track=true
     type: js
   - url: /local/state-attribute-element/state-attribute-element.js?v=0&track=true
     type: js
   - url: /local/text-element/text-element.js?v=0&track=true
+    type: js
+  - url: /local/auto-entities/auto-entities.js?v=0&track=true
     type: js
 views:
   - id: 0 # Automatically created id
@@ -188,7 +188,7 @@ views:
         image: "local/kitchen_cabinets.jpg"
         entity: light.kitchen_cabinets
       - id: 6f504b03bbb341528e55eceb031edb05 # Automatically created id
-        type: custom:monster-card
+        type: custom:auto-entities
         card:
           type: picture-glance
           title: Lights
@@ -210,7 +210,7 @@ views:
     title: Automations
     icon: mdi:home-automation
     cards:
-      - type: custom:monster-card
+      - type: custom:auto-entities
         show_empty: false
         card:
           type: entities
@@ -219,7 +219,7 @@ views:
           include:
             - entity_id: "automation.*"
               state: "on"
-      - type: custom:monster-card
+      - type: custom:auto-entities
         show_empty: false
         card:
           type: entities
